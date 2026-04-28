@@ -88,25 +88,15 @@ jobs:
           TARGET_REPO_PATH: targetrepo
           TRIVY_REPORT: scan-results/trivy.json
           SYFT_SBOM: scan-results/sbom.json
-          OUTPUT_DIR: ai-outputs
+          OUTPUT_DIR: research-outputs
           LLM_PROVIDER: groq
-          RESEARCH_OUTPUT_DIR: research-outputs
         run: PYTHONPATH=. uv run python -m ai_engine.main --sbom $SYFT_SBOM --trivy $TRIVY_REPORT --repo $TARGET_REPO_PATH --output-dir $OUTPUT_DIR
 
       - name: Debug output directories
         if: always()
         run: |
-          echo "=== ai-outputs ===" && ls -la ai-outputs/ || echo "Directory missing or empty"
           echo "=== research-outputs ===" && ls -la research-outputs/ || echo "Directory missing or empty"
           echo "=== scan-results ===" && ls -la scan-results/ || echo "Directory missing or empty"
-
-      - name: Upload AI Reports
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: ai-security-reports
-          path: ./ai-outputs/
-          if-no-files-found: warn
 
       - name: Upload Validation Reports
         uses: actions/upload-artifact@v4

@@ -41,7 +41,11 @@ def main():
         logger.info("Validation pipeline completed successfully", extra={"report": report})
 
     except Exception as e:
+        import traceback
+        import sys
         logger.error("An error occurred during the validation pipeline", extra={"error": str(e)})
+        traceback.print_exc()
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
