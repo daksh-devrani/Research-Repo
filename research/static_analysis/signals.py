@@ -98,8 +98,8 @@ def detect_function_usage(
         Tuple of (function_used: bool, function_locations: list[str]).
     """
     if not vulnerability.affected_functions:
-        logger.info("No affected functions specified for %s — skipping function usage check", vulnerability.id)
-        return False, []
+        logger.info("No affected functions specified for %s — skipping function usage check (assuming TRUE)", vulnerability.id)
+        return True, []
 
     found_paths: list[str] = []
 
@@ -174,7 +174,11 @@ def detect_call_path(
     Returns:
         True if any path from any function leads to a target function.
     """
-    if not target_functions or not call_graph:
+    if not target_functions:
+        logger.info("No target functions specified — skipping call path check (assuming TRUE)")
+        return True
+
+    if not call_graph:
         return False
 
     target_set = set(target_functions)
