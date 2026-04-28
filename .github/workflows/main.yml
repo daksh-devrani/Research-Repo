@@ -1,0 +1,135 @@
+name: devsecops-pipeline
+on:
+  workflow_dispatch:
+    inputs:
+      repo_owner:
+        required: true
+        type: string
+      repo_name:
+        required: true
+        type: string
+      branch:
+        required: true
+        type: string
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout engine repo
+        uses: actions/checkout@v4
+
+      - name: Checkout external target repository
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.repo_owner }}/${{ github.event.inputs.repo_name }}
+          ref: ${{ github.event.inputs.branch }}
+          token: ${{ secrets.PAT_TOKEN }}
+          path: targetrepo
+
+      - name: Use this repository as scan target (push / pull_request)
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          mkdir -p targetrepo
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='targetrepo' \
+            ./ targetrepo/
+
+      - name: Create scan-results folder
+        run: mkdir -p scan-results
+
+      - name: Create output directories
+        run: mkdir -p ai-outputs research-outputs
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Build Docker image
+        run: |
+          cd targetrepo
+          docker build -t targetrepo-image:latest .
+
+      - name: Run Semgrep
+        run: |
+          pip install semgrep
+          semgrep --config=auto targetrepo --json > scan-results/semgrep.json
+
+      - name: Run Snyk
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          npm install -g snyk
+          snyk test --json > scan-results/snyk.json || true
+
+      - name: Run Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: targetrepo
+          format: json
+          output: scan-results/trivy.json
+
+      - name: Generate SBOM
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh
+          ./bin/syft dir:targetrepo -o json > scan-results/sbom.json
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run AI Engine
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TARGET_REPO: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.repo_name || github.repository }}
+          TARGET_REPO_PATH: ../targetrepo
+          SEMGREP_REPORT: ../scan-results/semgrep.json
+          TRIVY_REPORT: ../scan-results/trivy.json
+          SNYK_REPORT: ../scan-results/snyk.json
+          SYFT_SBOM: ../scan-results/sbom.json
+          OUTPUT_DIR: ../ai-outputs
+          LLM_PROVIDER: groq
+          RESEARCH_OUTPUT_DIR: ../research-outputs
+        run: uv run --directory ai_engine python main.py
+
+      - name: Debug output directories
+        if: always()
+        run: |
+          echo "=== ai-outputs ===" && ls -la ai-outputs/ || echo "Directory missing or empty"
+          echo "=== research-outputs ===" && ls -la research-outputs/ || echo "Directory missing or empty"
+          echo "=== scan-results ===" && ls -la scan-results/ || echo "Directory missing or empty"
+
+      - name: Upload AI Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ai-security-reports
+          path: ./ai-outputs/
+          if-no-files-found: warn
+
+      - name: Upload Validation Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-reports
+          path: ./research-outputs/
+          if-no-files-found: warn
+
+      - name: Upload Scan Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scan-results
+          path: ./scan-results/
+          if-no-files-found: warn
