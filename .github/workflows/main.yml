@@ -85,13 +85,13 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           TARGET_REPO: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.repo_name || github.repository }}
-          TARGET_REPO_PATH: ../targetrepo
-          TRIVY_REPORT: ../scan-results/trivy.json
-          SYFT_SBOM: ../scan-results/sbom.json
-          OUTPUT_DIR: ../ai-outputs
+          TARGET_REPO_PATH: targetrepo
+          TRIVY_REPORT: scan-results/trivy.json
+          SYFT_SBOM: scan-results/sbom.json
+          OUTPUT_DIR: ai-outputs
           LLM_PROVIDER: groq
-          RESEARCH_OUTPUT_DIR: ../research-outputs
-        run: PYTHONPATH=. uv run python -m ai_engine.main
+          RESEARCH_OUTPUT_DIR: research-outputs
+        run: PYTHONPATH=. uv run python -m ai_engine.main --sbom $SYFT_SBOM --trivy $TRIVY_REPORT --repo $TARGET_REPO_PATH --output-dir $OUTPUT_DIR
 
       - name: Debug output directories
         if: always()
