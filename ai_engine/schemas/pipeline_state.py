@@ -6,3 +6,4 @@ class PipelineState(BaseModel):
     validation_errors: List[str] = Field(default_factory=list, description="Errors from validation node")
     trivy_report_path: str = Field(default="", description="Path to Trivy JSON report file")
     sbom_report_path: str = Field(default="", description="Path to Syft SBOM JSON file")
+    repo_path: str = Field(default="", description="Path to target repository directory")

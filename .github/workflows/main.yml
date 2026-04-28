@@ -58,7 +58,11 @@ jobs:
       - name: Build Docker image
         run: |
           cd targetrepo
-          docker build -t targetrepo-image:latest .
+          if [ -f Dockerfile ]; then
+            docker build -t targetrepo-image:latest .
+          else
+            echo "No Dockerfile found, skipping build."
+          fi
 
       - name: Run Semgrep
         run: |
@@ -101,7 +105,7 @@ jobs:
           OUTPUT_DIR: ../ai-outputs
           LLM_PROVIDER: groq
           RESEARCH_OUTPUT_DIR: ../research-outputs
-        run: uv run --directory ai_engine python main.py
+        run: uv run python ai_engine/main.py
 
       - name: Debug output directories
         if: always()

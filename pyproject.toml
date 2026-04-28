@@ -23,5 +23,5 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-pythonpath = ["ai_engine"]
+pythonpath = ["."]
 testpaths = ["ai_engine/tests"]
