@@ -64,18 +64,6 @@ jobs:
             echo "No Dockerfile found, skipping build."
           fi
 
-      - name: Run Semgrep
-        run: |
-          pip install semgrep
-          semgrep --config=auto targetrepo --json > scan-results/semgrep.json
-
-      - name: Run Snyk
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          npm install -g snyk
-          snyk test --json > scan-results/snyk.json || true
-
       - name: Run Trivy
         uses: aquasecurity/trivy-action@master
         with:
@@ -98,14 +86,12 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           TARGET_REPO: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.repo_name || github.repository }}
           TARGET_REPO_PATH: ../targetrepo
-          SEMGREP_REPORT: ../scan-results/semgrep.json
           TRIVY_REPORT: ../scan-results/trivy.json
-          SNYK_REPORT: ../scan-results/snyk.json
           SYFT_SBOM: ../scan-results/sbom.json
           OUTPUT_DIR: ../ai-outputs
           LLM_PROVIDER: groq
           RESEARCH_OUTPUT_DIR: ../research-outputs
-        run: uv run python ai_engine/main.py
+        run: PYTHONPATH=. uv run python -m ai_engine.main
 
       - name: Debug output directories
         if: always()
