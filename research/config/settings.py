@@ -49,10 +49,14 @@ def get_settings() -> Settings:
     except ValueError:
         threshold = 0.75
 
+    # If they only provide GROQ_API_KEY, use Groq defaults. Otherwise use OpenAI defaults.
+    default_model = "llama3-70b-8192" if os.environ.get("GROQ_API_KEY") else "gpt-4o-mini"
+    default_base_url = "https://api.groq.com/openai/v1" if os.environ.get("GROQ_API_KEY") else ""
+
     return Settings(
-        llm_model=os.environ.get("RESEARCH_LLM_MODEL", "gpt-4o-mini"),
+        llm_model=os.environ.get("RESEARCH_LLM_MODEL", default_model),
         llm_api_key=api_key,
-        llm_base_url=os.environ.get("RESEARCH_LLM_BASE_URL", ""),
+        llm_base_url=os.environ.get("RESEARCH_LLM_BASE_URL", default_base_url),
         confidence_threshold=threshold,
         supported_languages=["python"],
         output_dir=os.environ.get("RESEARCH_OUTPUT_DIR", "research_outputs"),
