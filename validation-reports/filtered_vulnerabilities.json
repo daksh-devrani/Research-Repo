@@ -1,0 +1,78 @@
+[
+  {
+    "vulnerability_id": "CVE-2023-32681",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.00 < 0.75): LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+    "confidence": 0.0,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.0,
+      "reasoning": "LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+      "raw_response": ""
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2024-35195",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.00 < 0.75): LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+    "confidence": 0.0,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.0,
+      "reasoning": "LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+      "raw_response": ""
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2024-47081",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.00 < 0.75): LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+    "confidence": 0.0,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.0,
+      "reasoning": "LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+      "raw_response": ""
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2026-25645",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.00 < 0.75): LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+    "confidence": 0.0,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.0,
+      "reasoning": "LLM validation failed or was unavailable \u2014 defaulting to KEEP (safe fallback).",
+      "raw_response": ""
+    }
+  }
+]
