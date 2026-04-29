@@ -50,7 +50,7 @@ def get_settings() -> Settings:
         threshold = 0.75
 
     # If they only provide GROQ_API_KEY, use Groq defaults. Otherwise use OpenAI defaults.
-    default_model = "llama-3.1-70b-versatile" if os.environ.get("GROQ_API_KEY") else "gpt-4o-mini"
+    default_model = "llama-3.3-70b-versatile" if os.environ.get("GROQ_API_KEY") else "gpt-4o-mini"
     default_base_url = "https://api.groq.com/openai/v1" if os.environ.get("GROQ_API_KEY") else ""
 
     return Settings(
