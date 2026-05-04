@@ -129,12 +129,60 @@ def detect_function_usage(
     Returns:
         Tuple of (function_used: bool, function_locations: list[str]).
     """
+    # If no affected functions are specified, we check if the package itself
+    # is actually referenced (beyond the import statement).
     if not vulnerability.affected_functions:
-        logger.info("No affected functions specified for %s — skipping function usage check (assuming TRUE)", vulnerability.id)
-        return True, []
+        logger.info("No affected functions specified for %s — checking for any package reference", vulnerability.id)
+        
+        # Reuse package normalization logic from detect_package_usage
+        package_name = vulnerability.package.split(">=")[0].split("==")[0].split("<=")[0].strip().lower()
+        primary_module = PKG_TO_MODULE_MAP.get(package_name, package_name)
+        search_roots = {
+            package_name,
+            package_name.replace("-", "_"),
+            package_name.replace("_", "-"),
+            primary_module.lower(),
+            primary_module.lower().replace("-", "_"),
+            primary_module.lower().replace("_", "-"),
+        }
+
+        found_paths: list[str] = []
+        for file_ast in file_asts:
+            matched = False
+            # Check references (Name and Attribute nodes)
+            for ref in file_ast.references:
+                root = ref.split(".")[0].lower()
+                if root in search_roots:
+                    matched = True
+                    break
+            # Also check function_calls for package-prefixed calls
+            if not matched:
+                for call in file_ast.function_calls:
+                    root = call.split(".")[0].lower()
+                    if root in search_roots:
+                        matched = True
+                        break
+            # Also check from_imports: if we imported FROM this package
+            # and any of those imported names appear in references, it's used
+            if not matched:
+                imported_names = set()
+                for module_name, names in file_ast.from_imports.items():
+                    mod_root = module_name.split(".")[0].lower()
+                    if mod_root in search_roots:
+                        imported_names.update(names)
+                if imported_names:
+                    for ref in file_ast.references:
+                        ref_base = ref.split(".")[0]
+                        if ref_base in imported_names:
+                            matched = True
+                            break
+            if matched:
+                found_paths.append(file_ast.path)
+        
+        function_used = len(found_paths) > 0
+        return function_used, found_paths
 
     found_paths: list[str] = []
-
     for file_ast in file_asts:
         matched = False
         for call in file_ast.function_calls:

@@ -53,6 +53,9 @@ class FileAST:
     call_graph_local: dict[str, list[str]] = field(default_factory=dict)
     """function_name → list of call names made inside that function body."""
 
+    references: list[str] = field(default_factory=list)
+    """All names and attributes referenced in the file (excluding imports)."""
+
 
 def _resolve_call_name(node: ast.expr) -> str:
     """
@@ -122,6 +125,7 @@ def parse_file(path: Path) -> Optional[FileAST]:
     function_defs: list[str] = []
     raw_calls: list[str] = []
     call_graph_local: dict[str, list[str]] = {}
+    references: list[str] = []
 
     # ── First pass: collect imports and aliases ───────────────────────────────
     for node in ast.walk(tree):
@@ -159,8 +163,22 @@ def parse_file(path: Path) -> Optional[FileAST]:
             name = _resolve_call_name(node.func)
             raw_calls.append(name)
 
-    # ── Resolve aliases in all collected call names ───────────────────────────
+    # ── Third pass: collect all references (names and attributes) ─────────────
+    # We skip nodes that are part of an import statement to avoid false positives.
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            continue
+        
+        if isinstance(node, ast.Name):
+            references.append(node.id)
+        elif isinstance(node, ast.Attribute):
+            name = _resolve_call_name(node)
+            if name != "<unknown>":
+                references.append(name)
+
+    # ── Resolve aliases in all collected names ───────────────────────────
     function_calls = [_resolve_alias(c, aliases) for c in raw_calls]
+    resolved_references = [_resolve_alias(r, aliases) for r in references]
 
     return FileAST(
         path=str(path.resolve()),
@@ -170,6 +188,7 @@ def parse_file(path: Path) -> Optional[FileAST]:
         function_defs=function_defs,
         function_calls=function_calls,
         call_graph_local=call_graph_local,
+        references=resolved_references,
     )
 
 
