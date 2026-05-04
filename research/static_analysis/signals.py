@@ -17,6 +17,22 @@ from research.utils.logger import get_logger
 logger = get_logger(__name__)
 
 
+# Common PyPI package name to import module name mappings.
+# Many packages have different names on PyPI than they do in import statements.
+PKG_TO_MODULE_MAP = {
+    "pyyaml": "yaml",
+    "pillow": "PIL",
+    "pyjwt": "jwt",
+    "python-jose": "jose",
+    "pycrypto": "Crypto",
+    "pycryptodome": "Crypto",
+    "scikit-learn": "sklearn",
+    "beautifulsoup4": "bs4",
+    "python-dateutil": "dateutil",
+    "psycopg2-binary": "psycopg2",
+}
+
+
 def detect_package_usage(
     vulnerability: Vulnerability,
     file_asts: list[FileAST],
@@ -28,6 +44,11 @@ def detect_package_usage(
     Also checks aliases — if `numpy` is aliased as `np`, a search for `numpy`
     will still find it.
 
+    This function handles:
+      1. Case-insensitivity (e.g. Flask vs flask)
+      2. Package-to-module mapping (e.g. PyYAML -> yaml, Pillow -> PIL)
+      3. Hyphen vs underscore normalization
+
     Args:
         vulnerability: The vulnerability whose package to search for.
         file_asts:     Parsed AST inventory of the repository.
@@ -35,10 +56,21 @@ def detect_package_usage(
     Returns:
         Tuple of (package_used: bool, import_locations: list[str]).
     """
-    # Strip version specifiers if present (e.g. "requests>=2.0" → "requests")
-    package_root = vulnerability.package.split(">=")[0].split("==")[0].split("<=")[0].strip()
-    # Normalize: PyPI often uses hyphens in names but imports use underscores
-    package_variants = {package_root, package_root.replace("-", "_"), package_root.replace("_", "-")}
+    # Strip version specifiers and lowercase for normalization
+    package_name = vulnerability.package.split(">=")[0].split("==")[0].split("<=")[0].strip().lower()
+
+    # Get the expected import module name(s)
+    primary_module = PKG_TO_MODULE_MAP.get(package_name, package_name)
+
+    # Generate variants (handling hyphens and underscores)
+    search_roots = {
+        package_name,
+        package_name.replace("-", "_"),
+        package_name.replace("_", "-"),
+        primary_module.lower(),
+        primary_module.lower().replace("-", "_"),
+        primary_module.lower().replace("_", "-"),
+    }
 
     found_paths: list[str] = []
 
@@ -47,24 +79,24 @@ def detect_package_usage(
 
         # Check `import X` statements
         for imp in file_ast.imports:
-            root = imp.split(".")[0]
-            if root in package_variants:
+            root = imp.split(".")[0].lower()
+            if root in search_roots:
                 matched = True
                 break
 
         # Check `from X import Y` statements
         if not matched:
             for module_name in file_ast.from_imports:
-                root = module_name.split(".")[0]
-                if root in package_variants:
+                root = module_name.split(".")[0].lower()
+                if root in search_roots:
                     matched = True
                     break
 
         # Check if any alias maps back to the package
         if not matched:
             for real_name in file_ast.aliases.values():
-                root = real_name.split(".")[0]
-                if root in package_variants:
+                root = real_name.split(".")[0].lower()
+                if root in search_roots:
                     matched = True
                     break
 
@@ -74,7 +106,7 @@ def detect_package_usage(
     package_used = len(found_paths) > 0
     logger.info(
         "Package usage detection complete",
-        extra={"package": package_root, "package_used": package_used, "locations": found_paths},
+        extra={"package": package_name, "package_used": package_used, "locations": found_paths},
     )
     return package_used, found_paths
 

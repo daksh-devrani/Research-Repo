@@ -1,0 +1,722 @@
+[
+  {
+    "vulnerability_id": "CVE-2021-43138",
+    "package": "async",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-45590",
+    "package": "body-parser",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-47764",
+    "package": "cookie",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-29041",
+    "package": "express",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-43796",
+    "package": "express",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2022-23539",
+    "package": "jsonwebtoken",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2022-23540",
+    "package": "jsonwebtoken",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2022-23541",
+    "package": "jsonwebtoken",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2026-4800",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2026-2950",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2019-10744",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2018-16487",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2020-8203",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2021-23337",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2019-1010266",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2020-28500",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-13465",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2018-3721",
+    "package": "lodash",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "GHSA-mh5c-679w-hh4r",
+    "package": "mongodb",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2019-17426",
+    "package": "mongoose",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2023-3696",
+    "package": "mongoose",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-23061",
+    "package": "mongoose",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2022-2564",
+    "package": "mongoose",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-53900",
+    "package": "mongoose",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2021-23438",
+    "package": "mpath",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2020-35149",
+    "package": "mquery",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-45296",
+    "package": "path-to-regexp",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-52798",
+    "package": "path-to-regexp",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2026-4867",
+    "package": "path-to-regexp",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2022-24999",
+    "package": "qs",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-15284",
+    "package": "qs",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2026-2391",
+    "package": "qs",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-43799",
+    "package": "send",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-43800",
+    "package": "serve-static",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2020-14343",
+    "package": "PyYAML",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2023-32681",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.80 < 0.75): The vulnerable package is imported and an affected function is called, with a call path existing and user-controlled input reaching the function without sanitization, increasing the likelihood of exploitability.",
+    "confidence": 0.8,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.8,
+      "reasoning": "The vulnerable package is imported and an affected function is called, with a call path existing and user-controlled input reaching the function without sanitization, increasing the likelihood of exploitability.",
+      "raw_response": "{\n  \"exploitable\": true,\n   \"confidence\": 0.8,\n   \"reasoning\": \"The vulnerable package is imported and an affected function is called, with a call path existing and user-controlled input reaching the function without sanitization, increasing the likelihood of exploitability.\"\n}"
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2024-35195",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.80 < 0.75): The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitation. However, the exact call path and affected function details are unknown, reducing confidence.",
+    "confidence": 0.8,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.8,
+      "reasoning": "The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitation. However, the exact call path and affected function details are unknown, reducing confidence.",
+      "raw_response": "{\n  \"exploitable\": true,\n   \"confidence\": 0.8,\n   \"reasoning\": \"The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitation. However, the exact call path and affected function details are unknown, reducing confidence.\"\n}"
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2024-47081",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.80 < 0.75): The package is imported in the codebase, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitability.",
+    "confidence": 0.8,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.8,
+      "reasoning": "The package is imported in the codebase, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitability.",
+      "raw_response": "{\n  \"exploitable\": true,\n   \"confidence\": 0.8,\n   \"reasoning\": \"The package is imported in the codebase, the affected function is called, and user-controlled input reaches the function without sanitization, increasing the likelihood of exploitability.\"\n}"
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2026-25645",
+    "package": "requests",
+    "final_label": "KEEP",
+    "explanation": "LLM determined exploitable or confidence below threshold (0.90 < 0.75): The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, indicating a high likelihood of exploitability.",
+    "confidence": 0.9,
+    "method": "llm",
+    "rule_result": {
+      "decision": "UNCERTAIN",
+      "reason": "All static signals suggest possible usage but context is ambiguous",
+      "fired_rule": "None"
+    },
+    "llm_result": {
+      "exploitable": true,
+      "confidence": 0.9,
+      "reasoning": "The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, indicating a high likelihood of exploitability.",
+      "raw_response": "{\n  \"exploitable\": true,\n   \"confidence\": 0.9,\n   \"reasoning\": \"The package is imported, the affected function is called, and user-controlled input reaches the function without sanitization, indicating a high likelihood of exploitability.\"\n}"
+    }
+  },
+  {
+    "vulnerability_id": "CVE-2019-11324",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2023-43804",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-66418",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-66471",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2026-21441",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2018-25091",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2019-11236",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2020-26137",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2023-45803",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2024-37891",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  },
+  {
+    "vulnerability_id": "CVE-2025-50181",
+    "package": "urllib3",
+    "final_label": "REMOVE",
+    "explanation": "Package is not imported anywhere in the repository",
+    "confidence": 1.0,
+    "method": "rule",
+    "rule_result": {
+      "decision": "FILTER",
+      "reason": "Package is not imported anywhere in the repository",
+      "fired_rule": "Rule1_PackageNotUsed"
+    },
+    "llm_result": null
+  }
+]
